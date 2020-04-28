@@ -3,30 +3,34 @@ package main
 import "fmt"
 
 func main() {
-	a := [20]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21}
+	a := [20]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+	var genap, ganjil, prima []int
 	for i := 0; i < len(a); i++ {
 		if a[i]%2 == 0 {
-			fmt.Println(a[i], "genap")
+			genap = append(genap, a[i])
 		}
 	}
-	// fmt.Println("---------------------------------------------------------------------")
-
+	fmt.Printf("Bilangan genap : %v, jumlah = %d\n", genap, len(genap))
+	fmt.Println("---------------------------------------------------------------------")
 	for i := 0; i < len(a); i++ {
 		if a[i]%2 == 1 {
-			fmt.Println(a[i], "ganjil")
+			ganjil = append(ganjil, a[i])
 		}
 	}
-	// fmt.Println("---------------------------------------------------------------------")
+	fmt.Printf("Bilangan ganjil : %v, jumlah = %d\n", ganjil, len(ganjil))
+	fmt.Println("---------------------------------------------------------------------")
 
-	for bil := 1; bil < len(a); bil++ {
+	for num := 1; num < len(a); num++ {
 		i := 0
-		for bag := 1; bag < len(a); bag++ {
-			if bil%bag == 0 {
+		for z := 1; z < len(a); z++ {
+			if num%z == 0 {
 				i++
 			}
 		}
-		if (i == 2) && (bil != 1) {
-			fmt.Println(bil, "Prima")
+		if i == 2 && num > 1 {
+			prima = append(prima, num)
 		}
 	}
+	fmt.Printf("Bilangan prima : %v, jumlah = %d\n", prima, len(prima))
+
 }
